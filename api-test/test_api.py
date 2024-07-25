@@ -2,8 +2,6 @@ import pytest
 import constants
 from services.posts_services import get_posts, post_posts
 
-url = constants.BASE_URL + "/posts"
-
 
 def test_getapi():
     
