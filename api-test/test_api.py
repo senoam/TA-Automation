@@ -1,5 +1,4 @@
 import pytest
-import constants
 from services.posts_services import get_posts, post_posts
 
 
@@ -48,13 +47,11 @@ def test_postapi():
         
         assert data["title"] == title
         assert data["body"] == body
-        assert data["userId"] == userId
+        assert data["userId"] == 14
+
+        assert len(data) > 0
     except AssertionError:
         print("POST API Test Failed, invalid data retrieved\n")
         raise AssertionError
 
     print("POST API Test Passed, all data types are valid\n")
-
-test_getapi()
-test_postapi()
-
