@@ -19,12 +19,44 @@ def test_getapi():
             assert isinstance(el["title"], str)
             assert isinstance(el["body"], str)
         except AssertionError:
-            print("Invalid data type on id " + str(el["id"]))
+            print("Invalid data type on id " + str(el["id"]) + "\n")
             raise AssertionError
     
-    print("Get API Test Passed, all data types are valid")
+    print("Get API Test Passed, all data types are valid\n")
 
-    
+def test_postapi():
+
+    # Payload variables initialization
+    title = "recommendation"
+    body = "motorcycle"
+    userId = 12
+
+    payload = {
+        "title": title,
+        "body": body,
+        "userId": userId
+    }
+
+    response = post_posts(payload)
+    assert response.status_code == 201
+
+    data = response.json()
+
+    try:
+        assert isinstance(data["userId"], int)
+        assert isinstance(data["id"], int)
+        assert isinstance(data["title"], str)
+        assert isinstance(data["body"], str)
+        
+        assert data["title"] == title
+        assert data["body"] == body
+        assert data["userId"] == userId
+    except AssertionError:
+        print("POST API Test Failed, invalid data retrieved\n")
+        raise AssertionError
+
+    print("POST API Test Passed, all data types are valid\n")
 
 test_getapi()
+test_postapi()
 
