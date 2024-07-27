@@ -2,6 +2,8 @@
 
 Make sure we are in the project directory.
 
+## 1. Automation API Test
+
 To setup a virtual environment in python 3, run this following command:
 
 ```
@@ -27,3 +29,5 @@ To run the test, run this command
 ```
 pytest api-test/test_api.py -s
 ```
+
+## 2. Automation Android Test
