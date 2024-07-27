@@ -15,9 +15,9 @@ def test_getapi():
             assert isinstance(el["id"], int)
             assert isinstance(el["title"], str)
             assert isinstance(el["body"], str)
-        except AssertionError:
+        except AssertionError as err:
             print("Invalid data type on id " + str(el["id"]) + "\n")
-            raise AssertionError
+            pytest.fail(f"Assertion Error Exception raised {err}")
     
     print("Get API Test Passed, all data types are valid\n")
 
@@ -47,11 +47,13 @@ def test_postapi():
         
         assert data["title"] == title
         assert data["body"] == body
-        assert data["userId"] == 14
+        assert data["userId"] == userId
 
         assert len(data) > 0
-    except AssertionError:
+    except AssertionError as err:
         print("POST API Test Failed, invalid data retrieved\n")
-        raise AssertionError
+        pytest.fail(f"Assertion Error Exception raised {err}")
+
+
 
     print("POST API Test Passed, all data types are valid\n")
