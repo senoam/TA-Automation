@@ -2,3 +2,4 @@ requests
 pytest
 selenium
 Appium-Python-Client==2.0.0
+selenium-page-factory
