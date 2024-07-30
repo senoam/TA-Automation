@@ -21,15 +21,12 @@ class BasePage(object):
         return self.driver.find_element(by=MobileBy.XPATH, value=locator).text
     
     def verify_element(self, locator, timeout):
-        self.wait_element(self, locator, timeout)
+        self.wait_element(locator, timeout)
         self.driver.find_element(by=MobileBy.XPATH, value=locator)
 
     def click_element(self, locator, timeout):
         self.wait_element(locator, timeout)
         self.driver.find_element(by=MobileBy.XPATH, value=locator).click()
-
-    def verify_element(self, locator):
-        self.driver.find_element(by=MobileBy.XPATH, value=locator)
 
     def send_keys(self, locator, content, timeout):
         

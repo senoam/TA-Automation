@@ -23,7 +23,7 @@ class MenuPage(BasePage):
         self.wait_element(self.txt_list_name, 4)
         self.wait_element(self.txt_list_password, 4)
 
-        self.verify_element(self.txt_list_name + "[@text='"+ name +"']")
-        self.verify_element(self.txt_list_email + "[@text='"+ email +"']")
-        self.verify_element(self.txt_list_password + "[@text='"+ password +"']")
+        self.verify_element(self.txt_list_name + "[@text='"+ name +"']", 3)
+        self.verify_element(self.txt_list_email + "[@text='"+ email +"']", 3)
+        self.verify_element(self.txt_list_password + "[@text='"+ password +"']", 3)
     

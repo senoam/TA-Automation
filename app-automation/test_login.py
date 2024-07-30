@@ -6,11 +6,6 @@ import pytest
 
 class Test_Suite(BaseTest):
 
-    # @pytest.mark.order(1)
-    # def test_login_failed(self):
-    #     loginPage = LoginPage(self.driver)
-    #     loginPage.login("Test@gmail.com", "test1234")
-
     @pytest.mark.order(1)
     def test_register_success(self):
         loginPage = LoginPage(self.driver)
@@ -29,6 +24,14 @@ class Test_Suite(BaseTest):
         menuPage = MenuPage(self.driver)
         menuPage.verify_header(email)
         menuPage.verify_account_exists(name, email, password[0])
+
+        self.driver.back()
+
+    @pytest.mark.order(2)
+    def test_login_failed(self):
+        loginPage = LoginPage(self.driver)
+        loginPage.login("invalid@gmail.com", "test1234")
+        loginPage.assert_failed_login()
 
        
 if __name__ == "__main__":

@@ -25,5 +25,5 @@ class LoginPage(BasePage):
         self.click_element(self.btn_create_account, 1)
 
     def assert_failed_login(self):
-        self.find_element(self.txt_failed_login)
+        self.verify_element(self.txt_failed_login, 4)
 
