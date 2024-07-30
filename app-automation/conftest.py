@@ -26,4 +26,3 @@ def driver_init(request):
     driver = webdriver.Remote(appium_server_url, capabilities)
     request.cls.driver = driver
     yield
-    driver.close_app()
