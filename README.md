@@ -29,7 +29,7 @@ pip install -r ../requirements.txt
 To run the test, run this command
 
 ```
-pytest api-test/test_api.py -s
+pytest test_api.py -s
 ```
 
 When you are finished running the test, run this command to exit the venv
