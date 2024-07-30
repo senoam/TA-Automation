@@ -13,6 +13,9 @@ class RegisterPage(BasePage):
         self.input_password = "//*[contains(@resource-id, 'textInputEditTextPassword')]"
         self.input_confirm_password = "//*[contains(@class, 'EditText') and contains(@resource-id, 'textInputEditTextConfirmPassword')]"
         self.btn_register = "//*[contains(@class, 'Button') and contains(@resource-id, 'appCompatButtonRegister')]"
+        self.txt_invalid_name = "//*[contains(@text, 'Enter Full Name')]"
+        self.txt_invalid_email = "//*[contains(@text, 'Enter Valid Email')]"
+        self.txt_email_already_exists = "//*[contains(@text, 'Email Already Exists')]"
 
 
     def register(self, name : str, email : str, password : list):
@@ -22,8 +25,24 @@ class RegisterPage(BasePage):
         self.send_keys(self.input_password, password[0], 3)
         self.send_keys(self.input_confirm_password, password[1], 3)
 
-        self.click_element(self.btn_register, 4)
+        self.click_register()
 
     def tapBack(self):
         # self.driver.press_keycode(4)
         self.back()
+
+    def click_register(self):
+        self.driver.swipe(0, 400, 0, 200, 1000)
+        self.click_element(self.btn_register, 4)
+
+    def assert_invalid_name(self):
+        self.verify_element(self.txt_invalid_name, 4)
+
+    def assert_invalid_email(self):
+        self.verify_element(self.txt_invalid_email, 4)
+    
+    def assert_in_registration_page(self):
+        self.verify_element(self.btn_register, 4)
+    
+    def assert_email_already_exists(self):
+        self.verify_element(self.txt_email_already_exists, 4)

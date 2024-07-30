@@ -11,6 +11,7 @@ class LoginPage(BasePage):
         self.btn_login = "//*[contains(@class, 'Button') and contains(@resource-id, 'appCompatButtonLogin')]"
         self.btn_create_account = "//*[contains(@class, 'TextView') and contains(@resource-id, 'textViewLinkRegister')]"
         self.txt_failed_login = "//*[contains(@text, 'Wrong Email or Password')]"
+        self.txt_invalid_email = "//*[contains(@text, 'Enter Valid Email')]"
 
     def login(self, email : str, password : str):
         
@@ -26,4 +27,6 @@ class LoginPage(BasePage):
 
     def assert_failed_login(self):
         self.verify_element(self.txt_failed_login, 4)
-
+    
+    def assert_invalid_email_format(self):
+        self.verify_element(self.txt_invalid_email, 4)

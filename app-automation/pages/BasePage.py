@@ -32,6 +32,7 @@ class BasePage(object):
         
         self.wait_element(locator, timeout)
         
+        self.driver.find_element(by=MobileBy.XPATH, value=locator).clear()
         self.driver.find_element(by=MobileBy.XPATH, value=locator).send_keys(content)
         self.driver.hide_keyboard()
 
