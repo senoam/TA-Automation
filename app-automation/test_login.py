@@ -1,6 +1,7 @@
 from pages.BaseTest import BaseTest
 from pages.LoginPage import LoginPage
 from pages.RegisterPage import RegisterPage
+from pages.MenuPage import MenuPage
 import pytest
 
 class Test_Suite(BaseTest):
@@ -23,7 +24,11 @@ class Test_Suite(BaseTest):
         registerPage.register(name, email, password)
         registerPage.back()
 
-        loginPage.login(email, password)
+        loginPage.login(email, password[0])
+
+        menuPage = MenuPage(self.driver)
+        menuPage.verify_header(email)
+        menuPage.verify_account_exists(name, email, password[0])
 
        
 if __name__ == "__main__":

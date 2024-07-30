@@ -15,7 +15,10 @@ class BasePage(object):
         ignored_exceptions=(NoSuchElementException,StaleElementReferenceException,)
         element = WebDriverWait(self.driver, timeout,ignored_exceptions=ignored_exceptions)\
                                 .until(EC.element_to_be_clickable((MobileBy.XPATH, locator)))
-        
+    
+    def get_text(self, locator, timeout):
+        self.wait_element(locator, timeout)
+        return self.driver.find_element(by=MobileBy.XPATH, value=locator).text
     
     def verify_element(self, locator, timeout):
         self.wait_element(self, locator, timeout)

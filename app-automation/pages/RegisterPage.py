@@ -19,8 +19,8 @@ class RegisterPage(BasePage):
 
         self.send_keys(self.input_name, name, 10)
         self.send_keys(self.input_email, email, 3)
-        self.send_keys(self.input_password, password, 3)
-        self.send_keys(self.input_confirm_password, password, 3)
+        self.send_keys(self.input_password, password[0], 3)
+        self.send_keys(self.input_confirm_password, password[1], 3)
 
         self.click_element(self.btn_register, 4)
 
