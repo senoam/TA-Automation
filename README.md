@@ -23,7 +23,7 @@ source testenv/bin/activate
 Inside the environment, run this command to install all the required packages:
 
 ```
-pip install -r requirements.txt
+pip install -r ../requirements.txt
 ```
 
 To run the test, run this command
@@ -37,6 +37,11 @@ When you are finished running the test, run this command to exit the venv
 ```
 deactivate
 ```
+
+### Test Cases
+
+1. Test Get API (Check data type and response code)
+2. Test Post API (Check data type, content, response code and length)
 
 ## 2. Automation Android Test
 
@@ -75,7 +80,7 @@ setup the python venv one more time in the `app-automation` folder and run these
 ```
 python3 -m venv testenv
 source testenv/bin/activate
-pip install -r requirements.txt
+pip install -r ../requirements.txt
 ```
 
 To test the app, run
@@ -93,12 +98,24 @@ In this setup, I built a test automation framework (android) that is based on py
 Positive:
 
 1. Verify Registration and Success Login
+   Expected Result: User is registered and logged in. Data is recorded in the Menu page.
+
 2. Verify If There are More than One Account Registered
+   Expected Result: New user data is registered and logged in. Data is recorded in the Menu page with the existing data is still present.
 
 Negative:
 
 1. Verify Invalid Password on Login
+   Expected Result: Fail to Login
+
 2. Verify Email not registered on Login
+   Expected Result: Fail to Login
+
 3. Verify Empty Email on Login
+   Expected Result: Fail to Login
+
 4. Verify Empty fields when Registering
+   Expected Result: Fail to Register
+
 5. Verify Email Already Exists when Registering
+   Expected Result: Fail to Register
