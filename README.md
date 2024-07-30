@@ -98,24 +98,31 @@ In this setup, I built a test automation framework (android) that is based on py
 Positive:
 
 1. Verify Registration and Success Login
+
    Expected Result: User is registered and logged in. Data is recorded in the Menu page.
 
 2. Verify If There are More than One Account Registered
+
    Expected Result: New user data is registered and logged in. Data is recorded in the Menu page with the existing data is still present.
 
 Negative:
 
 1. Verify Invalid Password on Login
+
    Expected Result: Fail to Login
 
 2. Verify Email not registered on Login
+
    Expected Result: Fail to Login
 
 3. Verify Empty Email on Login
+
    Expected Result: Fail to Login
 
 4. Verify Empty fields when Registering
+
    Expected Result: Fail to Register
 
 5. Verify Email Already Exists when Registering
+
    Expected Result: Fail to Register
