@@ -77,7 +77,7 @@ class Test_Suite(BaseTest):
 
         self.driver.back()
     
-    @pytest.mark.order(5)
+    @pytest.mark.order(6)
     def test_register_email_already_exists(self):
         loginPage = LoginPage(self.driver)
         loginPage.tap_create_account()
@@ -90,7 +90,7 @@ class Test_Suite(BaseTest):
 
         self.driver.back()
 
-    @pytest.mark.order(6)
+    @pytest.mark.order(7)
     def test_register_add_account(self):
         loginPage = LoginPage(self.driver)
         loginPage.tap_create_account()
