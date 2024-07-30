@@ -87,6 +87,33 @@ class Test_Suite(BaseTest):
         # Using the same value as the first test case
         registerPage.register(name, email, password)
         registerPage.assert_email_already_exists()
+
+        self.driver.back()
+
+    @pytest.mark.order(6)
+    def test_register_add_account(self):
+        loginPage = LoginPage(self.driver)
+        loginPage.tap_create_account()
+
+        registerPage = RegisterPage(self.driver)
+
+        secondName = "Aegon the Second"
+        secondEmail = "aegon2@gmail.com"
+        secondPassword = ["kingslanding", "kingslanding"]
+        registerPage.register("Aegon the Second", "aegon2@gmail.com", secondPassword)
+
+        self.driver.back()
+
+        loginPage.login(secondEmail, secondPassword[0])
+
+        menuPage = MenuPage(self.driver)
+
+        # Verify newly registered account is in the database
+        menuPage.verify_header(secondEmail)
+        menuPage.verify_account_exists(secondName, secondEmail, secondPassword[0])
+
+        # Verify the first account is still in the database (not missing)
+        menuPage.verify_account_exists(name, email, password[0])
        
 if __name__ == "__main__":
   pytest.main(["-q","test_login.py"])

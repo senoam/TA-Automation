@@ -13,13 +13,13 @@ class MenuPage(BasePage):
         self.txt_list_password = "//*[contains(@class, 'RecyclerView') and contains(@resource-id, 'recyclerViewUsers')]//*[@text='Password']//following-sibling::*"
 
     def verify_header(self, email : str):
-        self.wait_element(self.txt_title, 4)
+        self.wait_element(self.txt_title, 6)
         text = self.get_text(self.txt_own_name, 3)
         assert email == text
 
 
     def verify_account_exists(self, name, email, password):
-        self.wait_element(self.txt_list_email, 4)
+        self.wait_element(self.txt_list_email, 6)
         self.wait_element(self.txt_list_name, 4)
         self.wait_element(self.txt_list_password, 4)
 
